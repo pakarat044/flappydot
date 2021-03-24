@@ -44,7 +44,8 @@ class FlappyGame(GameApp):
         pass
 
     def on_key_pressed(self, event):
-        pass
+        if event.char == ' ':
+            self.dot.start()
 
 
 if __name__ == "__main__":
