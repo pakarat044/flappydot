@@ -9,6 +9,7 @@ UPDATE_DELAY = 33
 GRAVITY = 2.5
 STARTING_VELOCITY = -30
 
+
 class Dot(Sprite):
 
     def init_element(self):
@@ -24,9 +25,11 @@ class Dot(Sprite):
     def start(self):
         self.is_started = True
 
+
 class FlappyGame(GameApp):
     def create_sprites(self):
-        self.dot = Dot(self, 'images/dot.png', CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+        self.dot = Dot(self, 'images/dot.png',
+                       CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
 
         self.elements.append(self.dot)
 
@@ -44,11 +47,10 @@ class FlappyGame(GameApp):
         pass
 
 
-
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Flappy Game")
- 
+
     # do not allow window resizing
     root.resizable(False, False)
     app = FlappyGame(root, CANVAS_WIDTH, CANVAS_HEIGHT, UPDATE_DELAY)
