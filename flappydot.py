@@ -10,7 +10,7 @@ GRAVITY = 2.5
 STARTING_VELOCITY = -30
 JUMP_VELOCITY = -20
 
-PILLAR_SPEED = -2
+PILLAR_SPEED = -20
 
 
 class Dot(Sprite):
@@ -70,7 +70,11 @@ class PillarPair(Sprite):
     def update(self):
         if self.is_started:
             self.x += self.ps
-            self.ps += PILLAR_SPEED
+            self.ps = PILLAR_SPEED
+
+        if self.x <= STARTING_VELOCITY:
+            if self.is_started:
+                self.x = CANVAS_WIDTH
 
     def start(self):
         self.is_started = True
