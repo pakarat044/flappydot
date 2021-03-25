@@ -55,6 +55,7 @@ class FlappyGame(GameApp):
     def on_key_pressed(self, event):
         if event.char == ' ':
             self.dot.start()
+            self.pillar_pair.start()
             if not self.is_started:
                 self.is_started = True
             if self.is_started:
@@ -64,10 +65,15 @@ class FlappyGame(GameApp):
 class PillarPair(Sprite):
     def init_element(self):
         self.ps = PILLAR_SPEED
+        self.is_started = False
 
     def update(self):
-        self.x += self.ps
-        self.ps += PILLAR_SPEED
+        if self.is_started:
+            self.x += self.ps
+            self.ps += PILLAR_SPEED
+
+    def start(self):
+        self.is_started = True
 
 
 if __name__ == "__main__":
